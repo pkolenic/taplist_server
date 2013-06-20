@@ -1,0 +1,33 @@
+<h1>Listing pubs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pubs.each do |pub| %>
+  <tr>
+    <td><%= pub.name %></td>
+    <td><%= pub.address %></td>
+    <td><%= pub.city %></td>
+    <td><%= pub.state %></td>
+    <td><%= pub.zip %></td>
+    <td><%= link_to 'Show', pub %></td>
+    <td><%= link_to 'Edit', edit_pub_path(pub) %></td>
+    <td><%= link_to 'Destroy', pub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pub', new_pub_path %>
+<br />
+<%= link_to 'Back', :back %>
