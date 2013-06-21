@@ -4,21 +4,21 @@ class BeveragesController < ApplicationController
   def index
     @beverages = Beverage.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @beverages }
-    end
+    # respond_to do |format|
+      # format.html # index.html.erb
+      # format.json { render json: @beverages }
+    # end
   end
 
   # GET /beverages/1
   # GET /beverages/1.json
   def show
     @beverage = Beverage.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @beverage }
-    end
+    
+    # respond_to do |format|
+      # format.html # show.html.erb
+      # format.json { render json: @beverage }
+    # end    
   end
 
   # GET /beverages/new

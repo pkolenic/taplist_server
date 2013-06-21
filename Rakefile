@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Brewforia::Application.load_tasks
+Taplist::Application.load_tasks
