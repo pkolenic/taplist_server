@@ -420,12 +420,12 @@
 			 "id" => "121",
 			 "name" => "Test",
 			 "name_font" => {
-			 				  "text_color" => "#ffe8db",
-			 				  "font" => "MONOSPACE",
-			 				  "style" => "BOLD",
-			 				  "custom" => false,
-			 				  "list_size" => 16.0,
-			 				  "details_size" => 16.0			 				 
+			 				 "text_color" => "#0000ff",
+			 				 "font" => "spaceranger.ttf",
+			 				 "style" => "",
+			 				 "custom" => true,
+			 				 "list_size" => 36.0,
+			 				 "details_size" => 36.0		 				 
 			 				},			 
 			 "logo" => "",
 			 "address" => {
@@ -504,7 +504,7 @@
 			 				   "header" => "#FF0000",
 			 				   "subheader" => "#00FF00",
 			 				   "taplist" => "#360707",
-			 				   "publist" => "#000000"
+			 				   "publist" => "#FF6633"
 			 				  },
 			 "brews" => [
 			 	{ 
