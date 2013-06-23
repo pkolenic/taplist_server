@@ -5,6 +5,14 @@
 			{
 			 "id" => "101",
 			 "name" => "Brewforia - Meridian",
+			 "name_font" => {
+			 				  "text_color" => "#ffe8db",
+			 				  "font" => "MONOSPACE",
+			 				  "style" => "BOLD",
+			 				  "custom" => false,
+			 				  "list_size" => 16.0,
+			 				  "details_size" => 16.0			 				 
+			 				},
 			 "logo" => "https://s3.amazonaws.com/ratworkshop_taplist/logos/1/pub-1-logo-135156678.png",
 			 "address" => {
 			 			  "address" => "101 Overland Rd",
@@ -81,7 +89,8 @@
 			 "backgrounds" => {
 			 				   "header" => "#000000",
 			 				   "subheader" => "#000000",
-			 				   "taplist" => "#000000"
+			 				   "taplist" => "#000000",
+			 				   "publist" => "#000000"
 			 				  },
 			 "brews" => [
 			 	{ 
@@ -197,6 +206,14 @@
 			{
 			 "id" => "111",
 			 "name" => "Brewforia - Eagle",
+			 "name_font" => {
+			 				  "text_color" => "#ffe8db",
+			 				  "font" => "MONOSPACE",
+			 				  "style" => "BOLD",
+			 				  "custom" => false,
+			 				  "list_size" => 16.0,
+			 				  "details_size" => 16.0			 				 
+			 				},			 
 			 "logo" => "",
 			 "address" => {
 			 			  "address" => "101 State St.",
@@ -273,7 +290,8 @@
 			 "backgrounds" => {
 			 				   "header" => "#000000",
 			 				   "subheader" => "#000000",
-			 				   "taplist" => "#000000"
+			 				   "taplist" => "#000000",
+			 				   "publist" => "#000000"
 			 				  },			 				  
 			 "brews" => [
 			 	{ 
@@ -401,6 +419,14 @@
 			{
 			 "id" => "121",
 			 "name" => "Test",
+			 "name_font" => {
+			 				  "text_color" => "#ffe8db",
+			 				  "font" => "MONOSPACE",
+			 				  "style" => "BOLD",
+			 				  "custom" => false,
+			 				  "list_size" => 16.0,
+			 				  "details_size" => 16.0			 				 
+			 				},			 
 			 "logo" => "",
 			 "address" => {
 			 			  "address" => "10 Meridian Rd",
@@ -477,7 +503,8 @@
 			 "backgrounds" => {
 			 				   "header" => "#FF0000",
 			 				   "subheader" => "#00FF00",
-			 				   "taplist" => "#360707"
+			 				   "taplist" => "#360707",
+			 				   "publist" => "#000000"
 			 				  },
 			 "brews" => [
 			 	{ 
