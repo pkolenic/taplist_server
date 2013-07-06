@@ -47,7 +47,7 @@
 			 				  	 	"details_size" => 16.0
 			 					   },
 			 "subheader_font" => {
-			 			 		  "text_color" => "#ff3300",
+			 			 		  "text_color" => "#e9dcc8",
 			 				  	  "font" => "DEFAULT",
 			 				  	  "style" => "NORMAL",
 			 				  	  "custom" => false,
