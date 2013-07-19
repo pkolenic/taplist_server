@@ -15,7 +15,6 @@ Taplist::Application.routes.draw do
   
   resources :companies
   resources :pubs 
-  resources :beverages
 
   get "home/index"
   root :to => 'home#index'
