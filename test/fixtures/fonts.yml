@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text_color: MyString
+  font: MyString
+  style: MyString
+  custom: false
+  list_size: 1.5
+  details_size: 1.5
+
+two:
+  text_color: MyString
+  font: MyString
+  style: MyString
+  custom: false
+  list_size: 1.5
+  details_size: 1.5

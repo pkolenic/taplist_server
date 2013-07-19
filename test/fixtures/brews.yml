@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  abv: 1.5
+  glass: 1.5
+  quart: 1.5
+  growler: 1.5
+  type: 
+  image: MyString
+
+two:
+  name: MyString
+  description: MyString
+  abv: 1.5
+  glass: 1.5
+  quart: 1.5
+  growler: 1.5
+  type: 
+  image: MyString
