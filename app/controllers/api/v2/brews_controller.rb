@@ -1,8 +1,8 @@
 module Api
   module V2
-    class BeveragesController < Api::BaseController
+    class BrewsController < Api::BaseController
       
-      class Beverage < :: Beverage
+      class Brew < :: Brew
         def as_json(option = {})
           super.merge(released_on: "NEVER")
         end
@@ -11,11 +11,11 @@ module Api
       respond_to :json
       
       def index
-        respond_with Beverage.all
+        respond_with Brew.all
       end
       
       def show
-        respond_with Beverage.find(params[:id])
+        respond_with Brew.find(params[:id])
       end
     end 
   end
