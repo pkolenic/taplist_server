@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719195704) do
+ActiveRecord::Schema.define(:version => 20130720065028) do
 
   create_table "brews", :force => true do |t|
     t.string   "name"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(:version => 20130719195704) do
     t.string   "state"
     t.string   "zip"
     t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "featured_brew_rules", :force => true do |t|
+    t.float    "glass"
+    t.float    "quart"
+    t.float    "growler"
+    t.string   "type"
+    t.integer  "pub_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  glass: 1.5
+  quart: 1.5
+  growler: 1.5
+  type: 
+
+two:
+  glass: 1.5
+  quart: 1.5
+  growler: 1.5
+  type: 
