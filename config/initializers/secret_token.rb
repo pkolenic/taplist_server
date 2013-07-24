@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Taplist::Application.config.secret_key_base = '8d3d1815dc10f0558831ad1e7f56b45dff24ee59d52e0eb09e293c861459aba50d5f475da66f20e85e12c738d7c78e79dfbc8826d9d402364ae59712d79721fc'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Taplist::Application.config.secret_key_base = secure_token
