@@ -2,6 +2,10 @@ require 'api_constraints'
 
 Taplist::Application.routes.draw do
   
+  get "static_pages/home"
+  get "static_pages/help"
+  
+  # API ROUTES
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :brews
