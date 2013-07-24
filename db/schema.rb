@@ -9,11 +9,11 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720065028) do
+ActiveRecord::Schema.define(version: 20130720065028) do
 
-  create_table "brews", :force => true do |t|
+  create_table "brews", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.float    "abv"
@@ -22,32 +22,32 @@ ActiveRecord::Schema.define(:version => 20130720065028) do
     t.float    "growler"
     t.string   "type"
     t.string   "image"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "companies", :force => true do |t|
+  create_table "companies", force: true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "featured_brew_rules", :force => true do |t|
+  create_table "featured_brew_rules", force: true do |t|
     t.float    "glass"
     t.float    "quart"
     t.float    "growler"
     t.string   "type"
     t.integer  "pub_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "fonts", :force => true do |t|
+  create_table "fonts", force: true do |t|
     t.string   "text_color"
     t.string   "font"
     t.string   "style"
@@ -55,25 +55,25 @@ ActiveRecord::Schema.define(:version => 20130720065028) do
     t.float    "list_size"
     t.float    "details_size"
     t.integer  "compnay_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
   end
 
-  create_table "privileges", :force => true do |t|
+  create_table "privileges", force: true do |t|
     t.string   "privilege"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "pubs", :force => true do |t|
+  create_table "pubs", force: true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "title"
     t.integer  "title_font_id"
     t.string   "subtitle"
@@ -90,19 +90,19 @@ ActiveRecord::Schema.define(:version => 20130720065028) do
     t.string   "logo"
   end
 
-  create_table "pubs_brews", :force => true do |t|
+  create_table "pubs_brews", force: true do |t|
     t.integer "pub_id"
     t.integer "brew_id"
     t.boolean "featured"
   end
 
-  create_table "roles", :force => true do |t|
+  create_table "roles", force: true do |t|
     t.string   "role"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "roles_privileges", :force => true do |t|
+  create_table "roles_privileges", force: true do |t|
     t.integer "role_id"
     t.integer "privilege_id"
   end
