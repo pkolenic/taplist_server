@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130720065028) do
+ActiveRecord::Schema.define(version: 20130727033726) do
 
   create_table "brews", force: true do |t|
     t.string   "name"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20130720065028) do
     t.float    "growler"
     t.string   "type"
     t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "companies", force: true do |t|
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20130720065028) do
     t.string   "state"
     t.string   "zip"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "featured_brew_rules", force: true do |t|
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20130720065028) do
     t.float    "growler"
     t.string   "type"
     t.integer  "pub_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fonts", force: true do |t|
@@ -55,15 +55,15 @@ ActiveRecord::Schema.define(version: 20130720065028) do
     t.float    "list_size"
     t.float    "details_size"
     t.integer  "compnay_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "name"
   end
 
   create_table "privileges", force: true do |t|
     t.string   "privilege"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pubs", force: true do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20130720065028) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "title"
     t.integer  "title_font_id"
     t.string   "subtitle"
@@ -98,13 +98,25 @@ ActiveRecord::Schema.define(version: 20130720065028) do
 
   create_table "roles", force: true do |t|
     t.string   "role"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles_privileges", force: true do |t|
     t.integer "role_id"
     t.integer "privilege_id"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

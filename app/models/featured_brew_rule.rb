@@ -1,3 +1,3 @@
 class FeaturedBrewRule < ActiveRecord::Base
-  attr_accessible :glass, :growler, :quart, :type
+  #attr_accessible :glass, :growler, :quart, :type
 end

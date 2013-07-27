@@ -24,8 +24,12 @@ guard 'rspec', after_all_pass: false, cli: '--drb' do
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
   watch(%r{^spec/support/(.+)\.rb$})                  { "spec" }
-  watch('config/routes.rb')                           { "spec/routing" }
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
+  
+  watch('config/routes.rb') do
+   "spec/routing"
+   "spec/routes"
+  end
 
  # Custom Rails Tutorial specs
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) do |m|
@@ -43,7 +47,6 @@ guard 'rspec', after_all_pass: false, cli: '--drb' do
   
   watch(%r{^app/views/api/v1/(.+)/}) do |m|
   	"spec/requests/api/#{m[1].singularize}_spec.rb"
-  	"spec/requests/api/api_spec.rb"
   end
   
   watch(%r{^app/controllers/sessions_controller\.rb$}) do |m|
