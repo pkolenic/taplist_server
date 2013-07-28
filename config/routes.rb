@@ -3,7 +3,7 @@ require 'api_constraints'
 Taplist::Application.routes.draw do
   
   # USER PAGES
-  get "users/new"
+  resources :users
   match '/signup',  to: 'users#new',            via: 'get'  
   
   # STATIC PAGES
