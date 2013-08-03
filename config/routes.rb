@@ -3,8 +3,11 @@ require 'api_constraints'
 Taplist::Application.routes.draw do
   
   # USER PAGES
+  resources :sessions, only: [:new, :create, :destroy]
   resources :users
   match '/signup',  to: 'users#new',            via: 'get'  
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   
   # STATIC PAGES
   root  'static_pages#home'

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save { email.downcase! }
   before_validation :format_phone_number
+  before_create :create_remember_token
 
   def full_name
     "#{first_name} #{last_name}"
@@ -30,4 +31,18 @@ class User < ActiveRecord::Base
                            allow_blank: true
 
   validates :password, length: { minimum: 6 }
+  
+  # Encryption Methods
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def User.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+  
+  private
+    def create_remember_token
+      self.remember_token = User.encrypt(User.new_remember_token)
+    end
 end
