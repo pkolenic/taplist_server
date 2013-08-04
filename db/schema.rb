@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803202528) do
+ActiveRecord::Schema.define(version: 20130804190452) do
 
   create_table "brews", force: true do |t|
     t.string   "name"
@@ -117,10 +117,12 @@ ActiveRecord::Schema.define(version: 20130803202528) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.integer  "company_id"
+    t.integer  "status"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["status"], name: "index_users_on_status", using: :btree
 
 end

@@ -36,7 +36,7 @@ describe "User pages" do
     before { visit signup_path }
     let(:submit) { "Create my account" }
 
-   # Not sure why this one doesn't work, but it seem that the class change doesn't get seen
+   # js fails to run
     # describe "selecting a company should hide the company creation elements" do
       # before { select "Brew Company", from: "user[company_id]" }
       # it { should have_css('#company_fields.hidden') }
@@ -107,13 +107,62 @@ describe "User pages" do
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
+        
       end
       
       it "should create a company" do
         expect { click_button submit }.to change(Company, :count).by(1)
-      end
-              
+      end    
     end
     
+    # js fails to run
+    # describe "changing company selected" do
+      # before do
+        # valid_signup
+        # valid_company
+        # select "California",  from: "company[state]"
+      # end
+#       
+      # describe "to a company" do
+        # before do
+           # select "Brew Company", from: "user[company_id]"
+        # end
+#         
+        # it "should clear company fields" do
+          # find_field('Name').value.should eq ''
+          # find_field('Address').value.should eq ''
+          # find_field('City').value.should eq ''
+          # find_field('Zip').value.should eq ''
+          # find_field('Company Email').value.should eq ''
+          # find_field('State').value.should eq ''
+        # end
+      # end
+#       
+      # describe "to prompt" do
+        # before { select "Select a Company", from: "user[company_id]" }
+#         
+        # it "should clear company fields" do
+          # find_field('Name').value.should eq ''
+          # find_field('Address').value.should eq ''
+          # find_field('City').value.should eq ''
+          # find_field('Zip').value.should eq ''
+          # find_field('Company Email').value.should eq ''
+          # find_field('State').value.should eq ''
+        # end
+      # end
+#       
+      # describe "to a company" do
+        # before { select "add a company", from: "user[company_id]" }
+#         
+        # it "should not clear company fields" do
+          # find_field('Name').value.should eq 'Brew Company'
+          # find_field('Address').value.should eq '123 Some Street'
+          # find_field('City').value.should eq 'Some City'
+          # find_field('Zip').value.should eq '12345'
+          # find_field('Company Email').value.should eq 'company@example.com'
+          # find_field('State').value.should eq 'California'
+        # end
+      # end
+    # end
   end
 end

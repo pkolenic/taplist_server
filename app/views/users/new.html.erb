@@ -25,9 +25,11 @@
       <%= f.password_field :password_confirmation %>
 	  
 	  <% @companies = Company.all %>
-	  <%= label_tag 'user[company_id]', 'Select a company, or create a new one' %>
+	  <% @company = Company.new(id: '-1', name: "add a company") %>
+	  <% @companies.unshift @company %>
+	  <%= label_tag 'user[company_id]', 'Company' %>
 	  <%= select_tag 'user[company_id]', options_from_collection_for_select(@companies, "id", "name"),
-	  				 prompt: "new company", onChange: 'javascript: onCompanyChanged(this);' %>
+	  				 prompt: "Select a Company", onChange: 'javascript: onCompanyChanged(this);' %>
 
 	  <%= render 'company_form'%>
 

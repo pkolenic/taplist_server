@@ -9,15 +9,20 @@ class UsersController < ApplicationController
   
   def create
     @user_params = user_params
+    @user = User.new(@user_params)
     @cid = @user_params[:company_id].to_i
     if @cid && @cid < 1
       @company = Company.new(company_params)
       if @company.save
-        @user_params[:company_id] = @company.id
+        @user[:company_id] = @company.id
+        # Status = awaiting confirmation (as user self approved for new company)
+        @user[:status] = 1
       end
+    else
+      # Status = pending
+      @user[:status] = 0
     end
       
-    @user = User.new(@user_params)
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Taplist!"

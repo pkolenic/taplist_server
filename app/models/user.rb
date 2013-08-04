@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   before_save { email.downcase! }
+  after_initialize :set_status
   before_validation :format_phone_number
   before_create :create_remember_token
 
@@ -32,6 +33,19 @@ class User < ActiveRecord::Base
                            allow_blank: true
 
   validates :password, length: { minimum: 6 }
+
+  # User Status Checks
+  def pending_approval?
+    self.status == 0
+  end
+  
+  def awaiting_confirmation?
+    self.status == 1
+  end
+  
+  def active?
+    self.status > 1
+  end
   
   # Relationships
   # belongs_to :company
@@ -48,5 +62,12 @@ class User < ActiveRecord::Base
   private
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
+    end
+    def set_status
+      if self.company_id.to_i > 0
+        self.status = 0
+      else
+        self.status = 1
+      end
     end
 end

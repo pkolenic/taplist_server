@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
   before do
     @user = User.new(first_name: "Example", last_name: "User",
                       email: "user@example.com", phone_number: "321-555-1234",
@@ -18,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:company_id) }
+  it { should respond_to(:status) }
 
   it { should be_valid }
 
@@ -141,5 +141,22 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "status should be pending" do
+    before { @user.save }
+    its(:status) { should_not be_blank }
+    it{ should be_pending_approval }
+  end
+  
+  describe "status should be awaiting confirmation" do
+    let(:user2) { User.new(first_name: "Example", last_name: "User",
+                      email: "user@example.com", phone_number: "321-555-1234",
+                      password: "foobar", password_confirmation: "foobar") }
+    before do
+      user2[:company_id] = 1
+      user2.save
+    end
+    specify { expect(user2.awaiting_confirmation?).to be_true }
   end
 end

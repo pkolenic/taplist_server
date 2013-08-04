@@ -29,8 +29,17 @@
 
 function onCompanyChanged(sel) {
 	value = sel.value;
-	if (value > 0) {
+	if (value != -1) {
 		$('#company_fields').addClass('hidden');
+		
+		// Now clear the fields
+		$('#company_name').val('');
+		$('#company_address').val('');
+		$('#company_city').val('');
+		$('#company_state').val('');
+		$('#company_zip').val('');
+		$('#company_email').val('');
+		
 	} else {
 		$('#company_fields').removeClass('hidden');
 	}
