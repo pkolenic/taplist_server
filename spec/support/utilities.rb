@@ -15,6 +15,19 @@ def valid_signup
   fill_in "Confirmation", with: "foobar"
 end
 
+def partial_company
+  fill_in "Name",         with: "Beer Company"
+  fill_in "Address",      with: "Some Stree"
+end
+
+def valid_company
+  fill_in "Name",             with: "Brew Company"
+  fill_in "Address",          with: "123 Some Street"
+  fill_in "City",             with: "Some City"
+  fill_in "Zip",              with: "12345"
+  fill_in "Company Email",    with: "company@example.com"
+end
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert.alert-error', text: message)

@@ -1,0 +1,20 @@
+<div id = "company_fields">
+	<%= label_tag 'company[name]', 'Name' %>
+	<%= text_field_tag 'company[name]' %>
+
+	<%= label_tag 'company[address]', 'Address' %>
+	<%= text_field_tag 'company[address]' %>
+
+	<%= label_tag 'company[city]', 'City' %>
+	<%= text_field_tag 'company[city]' %>
+
+	<%= label_tag 'company[state]', 'State' %>
+	<% @country = Carmen::Country.coded('US') %>
+	<%= select_tag "company[state]", options_from_collection_for_select(@country.subregions, "name", "name"), prompt: "Select a State" %>	
+
+	<%= label_tag 'company[zip]', 'Zip' %>
+	<%= text_field_tag 'company[zip]' %>
+	
+	<%= label_tag 'company[email]', 'Company Email' %>
+	<%= text_field_tag 'company[email]' %>
+</div>

@@ -5,7 +5,8 @@ describe User do
   before do
     @user = User.new(first_name: "Example", last_name: "User",
                       email: "user@example.com", phone_number: "321-555-1234",
-                      password: "foobar", password_confirmation: "foobar")
+                      password: "foobar", password_confirmation: "foobar",
+                      company_id: 1)
   end
 
   subject { @user }
@@ -16,6 +17,7 @@ describe User do
   it { should respond_to(:phone_number) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:company_id) }
 
   it { should be_valid }
 
@@ -44,6 +46,11 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when company_id is not set" do
+    before { @user.company_id = " " }
+    it { should_not be_valid }
+  end
+
   describe "when email format is invalid" do
     it "should be invalid" do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
@@ -63,15 +70,6 @@ describe User do
         expect(@user).to be_valid
       end
     end
-  end
-
-  describe "when email address is already taken" do
-    before do
-      user_with_same_email = @user.dup
-      user_with_same_email.save
-    end
-
-    it { should_not be_valid }
   end
 
   describe "when email address is already taken" do

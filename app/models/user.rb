@@ -15,13 +15,14 @@ class User < ActiveRecord::Base
     self.phone_number.gsub!(/\D/, "")
 
     if self.phone_number.length == 11 && self.phone_number =~ /^1/
-    self.phone_number.slice!(0)
+      self.phone_number.slice!(0)
     end
   end
 
   # Validations
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }
+  validates :company_id, presence: true, format: { with: /\A\d+\z/i }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
@@ -31,6 +32,9 @@ class User < ActiveRecord::Base
                            allow_blank: true
 
   validates :password, length: { minimum: 6 }
+  
+  # Relationships
+  # belongs_to :company
   
   # Encryption Methods
   def User.new_remember_token

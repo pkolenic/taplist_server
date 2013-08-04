@@ -8,10 +8,19 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+    @user_params = user_params
+    @cid = @user_params[:company_id].to_i
+    if @cid && @cid < 1
+      @company = Company.new(company_params)
+      if @company.save
+        @user_params[:company_id] = @company.id
+      end
+    end
+      
+    @user = User.new(@user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to Taplist!"
       redirect_to @user
     else
       render 'new'
@@ -19,8 +28,11 @@ class UsersController < ApplicationController
   end
   
   private
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :password, :password_confirmation)
-  end
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :password, :password_confirmation, :company_id)
+    end
+    
+    def company_params
+      params.require(:company).permit(:name, :address, :city, :state, :zip, :email)
+    end
 end

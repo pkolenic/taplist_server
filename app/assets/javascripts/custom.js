@@ -26,3 +26,12 @@
           });
     });
 })(jQuery);
+
+function onCompanyChanged(sel) {
+	value = sel.value;
+	if (value > 0) {
+		$('#company_fields').addClass('hidden');
+	} else {
+		$('#company_fields').removeClass('hidden');
+	}
+}

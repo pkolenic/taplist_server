@@ -24,6 +24,13 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
 	  
+	  <% @companies = Company.all %>
+	  <%= label_tag 'user[company_id]', 'Select a company, or create a new one' %>
+	  <%= select_tag 'user[company_id]', options_from_collection_for_select(@companies, "id", "name"),
+	  				 prompt: "new company", onChange: 'javascript: onCompanyChanged(this);' %>
+
+	  <%= render 'company_form'%>
+
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
