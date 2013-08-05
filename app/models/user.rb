@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   end
   
   # Relationships
-  # belongs_to :company
+  belongs_to :company
   
   # Encryption Methods
   def User.new_remember_token
